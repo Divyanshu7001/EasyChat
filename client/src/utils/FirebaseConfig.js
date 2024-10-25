@@ -1,20 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-
+import "dotenv/config";
 const firebaseConfig = {
-  apiKey: "AIzaSyAy9CIJ9a6wNmL3c4Ji1CykzSGgkWx9Upk",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
 
-  authDomain: "easychat-56c6f.firebaseapp.com",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
 
-  projectId: "easychat-56c6f",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
 
-  storageBucket: "easychat-56c6f.appspot.com",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
 
-  messagingSenderId: "722697908959",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
 
-  appId: "1:722697908959:web:717d971b416ca5ad526f6a",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
 
-  measurementId: "G-302BS36LL1",
+  measurementId: process.env.NEXT_PUBLIC_FIREBAASE_MEASUREMENTID,
 };
 
 const app = initializeApp(firebaseConfig);

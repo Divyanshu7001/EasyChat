@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "start": "concurrently \"npm run dev\" \npm run prisma\"",
+    "start": "concurrently \"npm run dev\" \"npm run prisma\"",
     "prisma": "npx prisma studio",
     "dev": "nodemon index.js"
   },
