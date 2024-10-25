@@ -1,0 +1,13 @@
+export const HOST = "http://localhost:3002";
+
+const AUTH_ROUTE = `${HOST}/api/auth`;
+const MESSAGES_ROUTE = `${HOST}/api/messages`;
+
+//
+export const CHECK_USER_ROUTE = `${AUTH_ROUTE}/checkUser`;
+export const CREATE_USER_ROUTE = `${AUTH_ROUTE}/onboardUser`;
+export const GET_ALL_CONTACTS_ROUTE = `${AUTH_ROUTE}/get-contacts`;
+
+//
+export const ADD_MESSAGE_ROUTE = `${MESSAGES_ROUTE}/add-message`;
+export const GET_MESSAGES = `${MESSAGES_ROUTE}/get-messages`;
