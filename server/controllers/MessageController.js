@@ -1,6 +1,6 @@
 import ErrorHandler from "../middlewares/errorMiddleware.js";
 import getPrismaInstance from "../utils/PrismaClient.js";
-
+import { renameSync } from "fs";
 export const addMessage = async (req, res, next) => {
   try {
     const prisma = getPrismaInstance();
@@ -92,5 +92,39 @@ export const getMessages = async (req, res, next) => {
     return next(
       new ErrorHandler(`Error while Fetching Messages: ${error}`, 501)
     );
+  }
+};
+
+export const addImageMessage = async (req, res, next) => {
+  try {
+    console.log("in try");
+    console.log(req.file);
+    
+    if(req.file) {
+      const date = Date.now();
+      let filename = "uploads/images/" + date + req.file.originalname;
+      renameSync(req.file.path, filename);
+      const prisma = getPrismaInstance();
+      const { from, to } = req.query;
+      if (from && to) {
+        const message = await prisma.messages.create({
+          data: {
+            message: filename,
+            sender: { connect: { id: from } },
+            reciever: { connect: { id: to } },
+            type: "image",
+          },
+        });
+        return res.status(200).json({
+          success: true,
+          message: "Image Uploaded sucessfully",
+          message,
+        });
+      }
+      return next(new ErrorHandler("From & to is required", 400));
+    }
+    return next(new ErrorHandler("File is required", 401));
+  } catch (error) {
+    return next(new ErrorHandler(`Error While uploading Image: ${error}`, 502));
   }
 };

@@ -47,7 +47,6 @@ function Avatar({ type, image, setImage }) {
     reader.onload = function (event) {
       data.src = event.target.result;
       //console.log(data.src);
-
       data.setAttribute("data-src", event.target.result);
     };
     reader.readAsDataURL(file);

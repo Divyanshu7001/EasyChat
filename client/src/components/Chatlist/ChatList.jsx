@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import ChatListHeader from "./ChatListHeader";
 import SearchBar from "./SearchBar";
 import List from "./List";
