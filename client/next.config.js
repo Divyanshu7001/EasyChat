@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ["easychat-3iur.onrender.com"], 
     remotePatterns: [
       {
         protocol: "https",
