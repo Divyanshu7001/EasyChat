@@ -13,6 +13,7 @@ app.use(morgan("combined"));
 app.use(
   cors({
     origin: true,
+    Access-Control-Allow-Origin: *,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
